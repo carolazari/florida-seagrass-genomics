@@ -1,0 +1,23 @@
+# =====Athene Slurm Profile Settings=====
+restart-times: 1
+jobscript: "jobscript.sh"
+cluster:
+  "sbatch \
+  --partition={resources.partition} \
+  --cpus-per-task={threads} \
+  --mem={resources.mem_mb}M \
+  --time={resources.time} \
+  --job-name=sm_{rule}_{wildcards} \
+  --output=logs/slurm/sm_{rule}_{wildcards}-%j.out \
+  --error=logs/slurm/sm_{rule}_{wildcards}-%j.err"
+
+default-resources:
+  - partition: "shortq7"      # Default queue on Athene (Max 6 hours, includes GPUs if needed); you can choose shortq7, mediumq7, or longq7 depending on the resources you need (mostly time)
+  - time: "02:00:00"         # Default runtime wall clock
+  - mem_mb: 8000             # Default RAM allocation (8GB)
+
+# Keep the cluster from being choked with hundreds of jobs at once
+max-jobs-per-second: 2
+max-status-checks-per-second: 10
+local-cores: 1
+latency-wait: 60
