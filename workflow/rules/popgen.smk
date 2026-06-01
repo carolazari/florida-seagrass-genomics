@@ -1,16 +1,14 @@
-#====RADseq Population Genomics Module====
+# ====run_popgen: RADseq Population Genomics Module=====
 
 rule index_reference:
     input:
         ref = config["ref_genome_path"]
     output:
         bwt = f"{config['ref_genome_path']}.bwt"
-
     resources:
         partition = "shortq7",
         time = "00:30:00",
         mem_mb = 4000
-
     shell:
         "bwa index {input.ref}"
 
@@ -18,17 +16,15 @@ rule align_radseq:
     input:
         ref = config["ref_genome_path"],
         bwt = f"{config['ref_genome_path']}.bwt",
-        reads = lambda wildcards: units_df.loc[wildcards.sample, "fq1"]
+        
+        reads = get_fastq
     output:
         bam = f"{config['output_dir']}/popgen/bams/{{sample}}.sorted.bam"
-
     threads: 4
-
     resources:
         partition = "shortq7",
         time = "02:00:00",
         mem_mb = 8000
-
     shell:
         "bwa mem -t {threads} {input.ref} {input.reads} | samtools view -Sb - | samtools sort -o {output.bam} -"
 
@@ -37,12 +33,10 @@ rule create_bam_list:
         bams = expand(f"{config['output_dir']}/popgen/bams/{{sample}}.sorted.bam", sample=SAMPLES)
     output:
         bam_list = f"{config['output_dir']}/popgen/bams/bam_list.txt"
-
     resources:
         partition = "shortq7",
         time = "00:05:00",
         mem_mb = 1000
-
     run:
         with open(output.bam_list, "w") as f:
             for b in input.bams:
@@ -53,16 +47,12 @@ rule run_angsd:
         bam_list = f"{config['output_dir']}/popgen/bams/bam_list.txt"
     output:
         beagle = f"{config['output_dir']}/popgen/angsd/seagrass_gls.beagle.gz"
-
     threads: 8
-
     resources:
         partition = "shortq7",
         time = "05:00:00",
         mem_mb = 32000
-
     log: "logs/popgen/angsd.log"
-
     shell:
         """
         angsd -bam {input.bam_list} -GL 2 -doGlf 2 -doMajorMinor 1 -doMaf 1 \
@@ -79,15 +69,12 @@ rule run_pcangsd:
     input:
         beagle = f"{config['output_dir']}/popgen/angsd/seagrass_gls.beagle.gz"
     output:
-        cov = config["pca_output_path"] # Matches the clean path in config.yaml
-
+        cov = config["pca_output_path"]
     threads: 4
-
     resources:
         partition = "shortq7",
         time = "01:00:00",
         mem_mb = 16000
-
     shell:
         "pcangsd -beagle {input.beagle} -threads {threads} -o {config[output_dir]}/popgen/pcangsd/seagrass_pca"
 
@@ -96,13 +83,10 @@ rule run_ngsadmix:
         beagle = f"{config['output_dir']}/popgen/angsd/seagrass_gls.beagle.gz"
     output:
         qopt = f"{config['output_dir']}/popgen/ngsadmix/k{{k}}_admix.qopt"
-
     threads: 4
-
     resources:
         partition = "shortq7",
         time = "03:00:00",
         mem_mb = 16000
-
     shell:
         "NGSadmix -likes {input.beagle} -K {wildcards.k} -P {threads} -o {config[output_dir]}/popgen/ngsadmix/k{wildcards.k}_admix"
