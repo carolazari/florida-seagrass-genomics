@@ -1,0 +1,21 @@
+# ==== PIPELINE CONTROL SWITCHES (Set to true to run, false to skip)=====
+
+run_aseembly: true
+run_popgen: true
+
+# ==== Input & Output Directory Paths====
+
+wgs_reads: "data/wgs/florida_individual.fq.gz"
+radseq_dir: "data/samples"
+output_dir: "results"
+
+# ==== PopGen: ANGSD Quality Filters====
+
+minMapQ: 30       
+minQ: 20          
+minMaf: 0.05      
+minInd: 4         
+snp_pval: 1e-6    
+
+# Admixture cluster iterations to test (e.g., K=2, K=3, K=4)
+k_values: [2, 3, 4]
