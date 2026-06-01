@@ -1,5 +1,4 @@
 #==== Reference Genome Assembly=====
-#==== Reference Genome Assembly=====
 
 rule assemble_genome:
     input:
