@@ -1,38 +1,22 @@
-import os
+# 1. Load the framework environment and sample lists 
 
-configfile: "config.yaml"
+include: "rules/common.smk"
 
-# Dynamically find RADseq samples if the directory exists
-
-if os.path.exists(config["radseq_dir"]):
-    SAMPLES = [f.split('.')[0] for f in os.listdir(config["radseq_dir"]) if f.endswith(".fq.gz")]
-else:
-    SAMPLES = []
-
-# Initialize an empty list of files we want to create
-
-final_targets = []
-
-# Look at config.yaml: If run_assembly is true, add the assembly file to our target list
-
-if config["run_assembly"]:
-    include: "rules/assembly.smk"
-    final_targets.append(f"{config['output_dir']}/assembly/final_genome.fasta")
-
-# Look at config.yaml: If run_popgen is true, add the PopGen figures to our target list
-
-if config["run_popgen"]:
-    include: "rules/popgen.smk"
-    final_targets.append(f"{config['output_dir']}/popgen/pcangsd/seagrass_pca.cov")
-    final_targets.extend(expand(f"{config['output_dir']}/popgen/ngsadmix/k{{k}}_admix.qopt", k=config["k_values"]))
-
-
-# The master target rule that tells Snakemake what to execute
+##### Target rules #####
 
 rule all:
     input:
-        final_targets
+        # run_assembly: Reference Assembly
+        config["ref_genome_path"],
+        
+        # run_popgen: Downstream population analytics
+        config["pca_output_path"],
+        expand(
+            "results/popgen/ngsadmix/k{k}_admix.qopt", 
+            k=config["admixture"]["k_values"]
+        )
 
+##### Modules #####
 
-
-
+include: "rules/assembly.smk"
+include: "rules/popgen.smk"
