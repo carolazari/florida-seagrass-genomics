@@ -5,11 +5,10 @@ channels:
   - defaults
 dependencies:
   - snakemake-minimal=7.32.4
-  - snakemake-executor-cluster-slurm  # CRITICAL: Allows Snakemake to talk to Athene's Slurm scheduler
   - megahit=1.2.9                     # For run_assembly: WGS Assembly
   - bwa=0.7.17                        # For run_popgen: RADseq Mapping
   - samtools=1.17                     # For run_popgen: BAM formatting
-  - angsd=0.940                       # For run_popge: Genotype Likelihoods
-  - pcangsd=1.2                       # For run_popge: Population PCA
-  - ngsadmix=33                       # For run_popge: Admixture loops
-  - mamba                             # Fast environment resolver
+  - angsd=0.940                       # For run_popgen: Genotype Likelihoods
+  - pcangsd=1.2                       # For run_popgen: Population PCA
+  - ngsadmix=33                       # For run_popgen: Admixture loops
+  - mamba           
