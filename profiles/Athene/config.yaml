@@ -1,5 +1,5 @@
 jobs: 1200
-cores: 600
+cores: 200   # safer cluster cap (adjust upward only if admin-confirmed)
 local-cores: 1
 
 latency-wait: 60
@@ -12,7 +12,7 @@ printshellcmds: true
 use-conda: true
 
 cluster: |
-  mkdir -p results/slurm_logs/{rule} &&
+  mkdir -p results/slurm_logs/{rule}/ &&
   sbatch
     --exclude=node[29-36]
     --cpus-per-task={threads}
@@ -26,14 +26,10 @@ cluster: |
 cluster-cancel: scancel
 cluster-cancel-nargs: 1000
 
-
 default-resources:
-  - partition: "shortq7"      # Default queue on Athene (Max 6 hours, includes GPUs if needed); you can choose shortq7, mediumq7, or longq7 depending on the resources you need (mostly time)
-  - time: "02:00:00"         # Default runtime wall clock
-  - mem_mb: 8000             # Default RAM allocation (8GB)
+  - mem_mb=8000
+  - runtime=120
+  - partition="shortq7"
 
-# Keep the cluster from being choked with hundreds of jobs at once
 max-jobs-per-second: 2
 max-status-checks-per-second: 10
-local-cores: 1
-latency-wait: 60
