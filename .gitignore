@@ -1,83 +1,31 @@
-
 ############################
-# Snakemake core
+# R project files
 ############################
-.snakemake/
-*.snakemake.log
-*.lock
-*.tmp
-
-############################
-# Conda environments
-############################
-.env/
-envs/*/conda-meta/
-envs/*/pkgs/
-
-############################
-# HPC / SLURM logs
-############################
-slurm-*.out
-slurm-*.err
-*.out
-*.err
-results/slurm_logs/
-
-############################
-# Output directories (never version control)
-############################
-results/
-logs/
-resources/
-
-############################
-# Genomics large files
-############################
-*.bam
-*.bai
-*.sam
-
-*.vcf
-*.vcf.gz
-*.bcf
-*.tbi
-*.csi
-
-*.fastq
-*.fastq.gz
-
-*.fq
-*.fq.gz
-
-############################
-# Assembly outputs (very large)
-############################
-*.fasta
-*.fa
-*.fna
-*.gfa
-
-############################
-# Python cache
-############################
-__pycache__/
-*.pyc
-
-############################
-# R / plotting artifacts
-############################
+.Rproj.user
 .Rhistory
 .RData
-.Rproj.user/
+.Ruserdata
+.rmd_snakemake.Rproj.user
 
 ############################
-# OS files
+# Snakemake
+############################
+.snakemake
+
+############################
+# Project data + outputs
+############################
+data
+results
+resources/genome*
+
+############################
+# SLURM logs (HPC addition)
+############################
+results/slurm_logs
+
+############################
+# OS / system files
 ############################
 .DS_Store
 Thumbs.db
-
-############################
-# Editor / IDE
-############################
-.vscode/
-.idea/
