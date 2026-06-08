@@ -12,8 +12,8 @@ assembly:
   species: Halodure_wrightii
   busco_lineage: 
   
-  hic_r1: ./CGKMAH250121-1/Data/hic_rawdata/Halodule-wrightii-1_1.fq.gz
-  hic_r2: ./CGKMAH250121-1/Data/hic_rawdata/Halodule-wrightii-1_2.fq.gz
+  hic_r1: ../CGKMAH250121-1/Data/hic_rawdata/Halodule-wrightii-1_1.fq.gz
+  hic_r2: ../CGKMAH250121-1/Data/hic_rawdata/Halodule-wrightii-1_2.fq.gz
 
   threads: 64
 
