@@ -1,0 +1,11 @@
+channels:
+
+  - bioconda
+  - conda-forge
+
+dependencies:
+
+  - busco
+  - augustus
+  - hmmer
+  - blast

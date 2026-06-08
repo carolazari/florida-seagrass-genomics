@@ -15,6 +15,7 @@ include: "rules/ngsrelate.smk"
 include: "rules/variants.smk"
 include: "rules/plink.smk"
 include: "rules/admixture.smk"
+include: "rules/assembly.smk"
 
 
 rule all:

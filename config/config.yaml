@@ -6,7 +6,13 @@ reference:
   fasta: resources/reference/reference.fa
 
 assembly:
-  enabled: false   # plug-in point for later
+  enabled: true   # plug-in point for later
+
+  pcabio_bam: Data/PacBio_WGS/Halodule_wrightii/m84104_250620_063612_s2.hifi_reads.bc2032.bam #here add the path to your bam file
+  species: Halodure_wrightii
+  busco_lineage: embryophyta_odb10
+
+  threads: 64
 
 mapping:
   mapper: bwa-mem2
