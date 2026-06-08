@@ -3,7 +3,7 @@ rule busco:
         "results/assembly/halodule.primary.fa"
 
     output:
-        directory:"results/assembly/busco")
+        directory("results/assembly/busco")
 
     threads: 32
 
@@ -16,14 +16,14 @@ rule busco:
 
     shell:
         """
-        busco -i {input} -m genome -l {config[assembly][busco_lineage]} -o halodule_busco --out_path results/assembly 
+        busco -i {input} -m genome -l {config[assembly][busco_lineage]} -o busco --out_path results/assembly 
 
         """
 
 rule assembly_complete:
     input:
-        "results/assembly/haludore.primary.fa",
-        directory("results/assembly/busco")
+        "results/assembly/halodule.primary.fa",
+        "results/assembly/busco"
 
     output:
-        touch("results/assembly/ASSSEMBLY_COMPLETE")                            
+        touch("results/assembly/ASSEMBLY_COMPLETE")                            
