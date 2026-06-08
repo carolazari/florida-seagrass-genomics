@@ -1,6 +1,6 @@
 project: seagrass_popgen
 
-samples: config/samples.tsv
+samples: null #config/samples.tsv
 
 reference:
   fasta: resources/reference/reference.fa
