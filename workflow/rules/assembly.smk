@@ -6,5 +6,5 @@
 #        echo "Assembly module disabled until sequencing technology is known" > {output}
 #        """
 
-include: "rules/hifiasm.smk"
-include: "rules/busco.smk"
+include: "workflow/rules/hifiasm.smk"
+include: "workflow/rules/busco.smk"
