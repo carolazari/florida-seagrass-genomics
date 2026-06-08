@@ -1,6 +1,6 @@
-rule pacibio_to_fastq:
+rule pacbio_to_fastq:
     input:
-        config["assembly"]["pacibio_bam"]
+        config["assembly"]["pacbio_bam"]
 
     output:
         "results/assembly/hifi_reads.fastq.gz"
