@@ -16,8 +16,12 @@ include: "rules/variants.smk"
 include: "rules/plink.smk"
 include: "rules/admixture.smk"
 include: "rules/assembly.smk"
+include: "rules/hifiasm.smk"
+include: "rules/hic.smk"
+include: "rules/scaffolding.smk"
 
 
 rule all:
     input:
         "results/report/final.done"
+        "results/assembly/ASSEMBLY_COMPLETE"

@@ -45,7 +45,7 @@ rule gfa_to_fasta:
         "results/assembly/halodule.bp.p_ctg.gfa"
 
     output:
-        "results/assembly/halodule.primary.fa"
+        "results/assembly/halodule.contigs.fa"
 
     shell:
         r'''
@@ -53,5 +53,5 @@ rule gfa_to_fasta:
 
         '''
 
-        
+
 
