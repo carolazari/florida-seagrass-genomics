@@ -23,7 +23,7 @@ rule busco:
 rule assembly_complete:
     input:
         fasta="results/assembly/halodule.primary.fa",
-        busco="results/assembly/busco/short_summary*.txt",
+        busco="results/assembly/busco/short_summary.txt",
         scaffold="results/assembly/halodule.chromosome.fa"
 
     output:
