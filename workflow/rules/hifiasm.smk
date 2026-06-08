@@ -28,8 +28,8 @@ rule hifiasm:
         "results/assembly/halodule.bp.p_ctg.gfa"
 
     resources:
-        mem_mb:512000,
-        runtime:4320    
+        mem_mb=512000,
+        runtime=4320    
 
     conda:
         "../envs/hifiasm.yaml"
