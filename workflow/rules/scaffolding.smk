@@ -1,7 +1,7 @@
 rule yahs:
     input:
         ref="results/assembly/halodule.contigs.fa",
-        bam="results/hic/{sample}.sorted.bam"
+        bam="results/hic/halodule.sorted.bam"
 
     output:
         "results/assembly/halodule.scaffolds.fa"

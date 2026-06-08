@@ -5,7 +5,7 @@ rule hic_map:
         r2="raw_hic/{sample}_R2.fastq.gz"
 
     output:
-        "results/hic/{sample}.bam"
+        "results/hic/halodule.bam"
 
     threads: 16
 
@@ -20,10 +20,10 @@ rule hic_map:
 
 rule hic_sort:
     input:
-        "results/hic/{sample}.bam"
+        "results/hic/halodule.bam"
 
     output:
-        "results/hic/{sample}.sorted.bam"
+        "results/hic/halodule.sorted.bam"
 
     conda:
         "../envs/samtool.yaml"
@@ -34,10 +34,10 @@ rule hic_sort:
 
 rule hic_index:
     input:
-        "results/hic/{sample}.sorted.bam"
+        "results/hic/halodule.sorted.bam"
 
     output:
-        "results/hic/{sample}.sorted.bam.bai"
+        "results/hic/halodule.sorted.bam.bai"
 
     conda:
         "../envs/samtools.yaml"
