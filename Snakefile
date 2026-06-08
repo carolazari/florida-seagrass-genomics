@@ -2,7 +2,14 @@ configfile: "config/config.yaml"
 
 import pandas as pd
 
-SAMPLES = pd.read_csv(config["samples"], sep="\t")["sample_id"].tolist()
+#SAMPLES = pd.read_csv(config["samples"], sep="\t")["sample_id"].tolist()
+
+import pandas as pd
+
+SAMPLES = []
+
+if config.get("samples"):
+    SAMPLES = pd.read_csv(config["samples"], sep="\t")["sample_id"].tolist()
 
 include: "rules/qc.smk"
 include: "rules/mapping.smk"
