@@ -1,8 +1,8 @@
 rule hic_map:
     input:
         ref="results/assembly/halodule.contigs.fa",
-        r1="raw_hic/{sample}_R1.fastq.gz",
-        r2="raw_hic/{sample}_R2.fastq.gz"
+        r1=config["assembly"]["hic_r1"],
+        r2=config["assembly"]["hic_r2"]
 
     output:
         "results/hic/halodule.bam"

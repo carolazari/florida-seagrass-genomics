@@ -10,7 +10,10 @@ assembly:
 
   pacbio_bam: ../CGKMAH250121-1/Data/PacBio_WGS/Halodule_wrightii/m84104_250620_063612_s2.hifi_reads.bc2032.bam #here add the path to your bam file
   species: Halodure_wrightii
-  busco_lineage: embryophyta_odb10
+  busco_lineage: 
+  
+  hic_r1: Data/HiC/Halodule-wrightii-1_1.fq.gz
+  hic_r2: Data/HiC/Halodule-wrightii-1_2.fq.gz
 
   threads: 64
 
