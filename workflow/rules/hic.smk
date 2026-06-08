@@ -14,7 +14,7 @@ rule hic_map:
 
     shell:
         """
-        bwa mem -55P -t {threads} {input.ref} {input.r1} {input.r2} | samtools view -bS - > {output}
+        bwa mem -5SP -t {threads} {input.ref} {input.r1} {input.r2} | samtools view -bS - > {output}
 
         """
 
@@ -23,7 +23,7 @@ rule hic_sort:
         "results/hic/{sample}.bam"
 
     output:
-        "results/hic/{sample}sorted.bam"
+        "results/hic/{sample}.sorted.bam"
 
     conda:
         "../envs/samtool.yaml"
@@ -37,7 +37,7 @@ rule hic_index:
         "results/hic/{sample}.sorted.bam"
 
     output:
-        "result/hic/{sample}.sorted.bam.bai"
+        "results/hic/{sample}.sorted.bam.bai"
 
     conda:
         "../envs/samtools.yaml"
