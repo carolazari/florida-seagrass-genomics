@@ -1,6 +1,6 @@
 rule pacibio_to_fastq:
     input:
-        bam=config["assembly"]["pacibio_bam"]
+        config["assembly"]["pacibio_bam"]
 
     output:
         "results/assembly/hifi_reads.fastq.gz"
