@@ -3,4 +3,4 @@ channels:
   - conda-forge
 
 dependencies:
-  - plink
+  - plink=1.90b6.21

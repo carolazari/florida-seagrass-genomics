@@ -3,4 +3,4 @@ channels:
   - conda-forge
 
 dependencies:
-  - ngsrelate
+  - ngsrelate=2.0

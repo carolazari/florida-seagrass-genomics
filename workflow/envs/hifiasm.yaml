@@ -4,5 +4,5 @@ channels:
 
 dependencies:
 
-  - hifiasm
-  - samtools
+  - hifiasm=0.19.9
+  - samtools=1.20
