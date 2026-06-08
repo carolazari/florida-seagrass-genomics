@@ -1,6 +1,6 @@
 rule pacibio_to_fastq:
     input:
-        config["assembly"]["pacibio_bam"]
+        bam=config["assembly"]["pacibio_bam"]
 
     output:
         "results/assembly/hifi_reads.fastq.gz"
@@ -8,7 +8,7 @@ rule pacibio_to_fastq:
     threads: 16
 
     resources:
-        mem_mb:64000,
+        mem_mb=64000,
         runtime=720
 
     conda:
