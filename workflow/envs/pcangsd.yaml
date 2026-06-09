@@ -1,11 +1,11 @@
 channels:
   - conda-forge
   - bioconda
-  - defaults
+ 
 
 dependencies:
-  - python==3.11
-  - numpy==1.26
-  - scipy==1.11
-  - pandas==2.2
-  - pcangsd==1.32
+  - python
+  - numpy
+  - scipy
+  - pandas
+  - pcangsd

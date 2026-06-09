@@ -1,9 +1,9 @@
 channels:
   - bioconda
   - conda-forge
-  - defaults
+  
 
 dependencies:
-  - angsd==0.940
-  - htslib==1.20
-  - samtools==1.20
+  - angsd
+  - htslib
+  - samtools
