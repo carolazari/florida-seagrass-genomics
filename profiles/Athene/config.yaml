@@ -4,7 +4,7 @@ cluster:
     --partition=shortq7 
     --cpus-per-task={threads}
     --mem={resources.mem_mb}
-    --time={resources.runtime}
+    --time={resources.time}
     --job-name=smk-{rule}-{wildcards}
     --output=results/slurm_logs/{rule}/{rule}-%j.out
     --error=results/slurm_logs/{rule}/{rule}-%j.err
