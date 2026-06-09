@@ -5,6 +5,4 @@ channels:
 
 dependencies:
   - hifiasm
-  - samtools
-  - ncurses
-  - htslib
+  

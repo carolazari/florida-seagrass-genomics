@@ -12,7 +12,7 @@ rule pacbio_to_fastq:
         time="05:00:00"
 
     conda:
-        "../envs/hifiasm.yaml"
+        "../envs/samtools.yaml"
 
     shell:
         """
