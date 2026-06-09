@@ -1,6 +1,7 @@
 channels:
   - bioconda
   - conda-forge
+  - defaults
 
 dependencies:
   - yahs=1.2a.2
