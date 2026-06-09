@@ -51,7 +51,7 @@ rule gfa_to_fasta:
 
     shell:
         r'''
-        awk '/^S/ {print ">"$2"\n"$3}' {input} > {output}
+        awk '/^S/ {{print ">"$2"\n"$3}}' {input} > {output}
 
         '''
 
