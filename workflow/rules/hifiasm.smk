@@ -27,6 +27,8 @@ rule hifiasm:
     output:
         "results/assembly/halodule.bp.p_ctg.gfa"
 
+    threads: 64    
+
     resources:
         mem_mb=512000,
         runtime=4320    

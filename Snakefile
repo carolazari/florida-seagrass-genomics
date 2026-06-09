@@ -22,13 +22,12 @@ include: "workflow/rules/ngsrelate.smk"
 include: "workflow/rules/variants.smk"
 include: "workflow/rules/plink.smk"
 include: "workflow/rules/admixture.smk"
-include: "workflow/rules/assembly.smk"
-include: "workflow/rules/hifiasm.smk"
+#include: "workflow/rules/hifiasm.smk"
 include: "workflow/rules/hic.smk"
 include: "workflow/rules/scaffolding.smk"
 
 
 rule all:
     input:
-        "results/report/final.done"
+        "results/report/final.done",
         "results/assembly/ASSEMBLY_COMPLETE"

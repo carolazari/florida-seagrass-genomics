@@ -26,7 +26,7 @@ rule hic_sort:
         "results/hic/halodule.sorted.bam"
 
     conda:
-        "../envs/samtool.yaml"
+        "../envs/samtools.yaml"
 
     shell:
         "samtools sort -o {output} {input}"

@@ -1,6 +1,6 @@
 rule busco:
     input: 
-        "results/assembly/halodule.primary.fa"
+        "results/assembly/halodule.chromosome.fa"
 
     output:
         directory("results/assembly/busco")
@@ -22,9 +22,10 @@ rule busco:
 
 rule assembly_complete:
     input:
-        fasta="results/assembly/halodule.primary.fa",
-        busco="results/assembly/busco/short_summary.txt",
-        scaffold="results/assembly/halodule.chromosome.fa"
+        "results/assembly/halodule.chromosome.fa",
+        directory("results/assembly/busco")
+        #"results/assembly/busco/short_summary.txt",
+        #scaffold="results/assembly/halodule.chromosome.fa"
 
     output:
         touch("results/assembly/ASSEMBLY_COMPLETE")                            
