@@ -1,3 +1,27 @@
+cluster: 
+  mkdir -p results/slurm_logs/{rule}/ &&
+  sbatch
+
+    --cpus-per-task={threads}
+    --mem={resources.mem_mb}
+    --time={resources.runtime}
+    --job-name=smk-{rule}-{wildcards}
+    --output=results/slurm_logs/{rule}/{rule}-%j.out
+    --error=results/slurm_logs/{rule}/{rule}-%j.err
+    --parsable
+    #--exclude=node[29-36]
+
+cluster-cancel: scancel
+cluster-cancel-nargs: 1000
+
+default-resources:
+  - mem_mb=8000
+  - time="10:00:00"
+  - partition="shortq7"
+
+max-jobs-per-second: 2
+max-status-checks-per-second: 10
+
 jobs: 1200
 cores: 200   # safer cluster cap (adjust upward only if admin-confirmed)
 local-cores: 1
@@ -11,26 +35,3 @@ printshellcmds: true
 
 use-conda: true
 conda-frontend: conda
-
-cluster: 
-  mkdir -p results/slurm_logs/{rule}/ &&
-  sbatch
-    #--exclude=node[29-36]
-    --cpus-per-task={threads}
-    --mem={resources.mem_mb}
-    --time={resources.runtime}
-    --job-name=smk-{rule}-{wildcards}
-    --output=results/slurm_logs/{rule}/{rule}-%j.out
-    --error=results/slurm_logs/{rule}/{rule}-%j.err
-    --parsable
-
-cluster-cancel: scancel
-cluster-cancel-nargs: 1000
-
-default-resources:
-  - mem_mb=8000
-  - time="10:00:00"
-  - partition="shortq7"
-
-max-jobs-per-second: 2
-max-status-checks-per-second: 10
