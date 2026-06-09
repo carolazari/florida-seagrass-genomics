@@ -12,7 +12,7 @@ printshellcmds: true
 use-conda: true
 conda-frontend: conda
 
-cluster: |
+cluster: 
   mkdir -p results/slurm_logs/{rule}/ &&
   sbatch
     #--exclude=node[29-36]
