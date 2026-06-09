@@ -6,8 +6,8 @@ channels:
 
 dependencies:
 
-  - busco=5.7.0
-  - augustus=3.5.0
-  - hmmer=3.4
-  - blast=2.15.0
-  - sepp=4.5.5
+  - busco==5.7.0
+  - augustus==3.5.0
+  - hmmer==3.4
+  - blast==2.15.0
+  - sepp==4.5.5

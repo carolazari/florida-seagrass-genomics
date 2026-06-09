@@ -4,4 +4,4 @@ channels:
   - defaults
 
 dependencies:
-  - ngsadmix=32
+  - ngsadmix==32

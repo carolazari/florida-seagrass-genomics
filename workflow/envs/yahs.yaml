@@ -4,5 +4,5 @@ channels:
   - defaults
 
 dependencies:
-  - yahs=1.2a.2
-  - samtools=1.20
+  - yahs==1.2a.2
+  - samtools==1.20

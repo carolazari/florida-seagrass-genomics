@@ -4,4 +4,4 @@ channels:
   - defaults
 
 dependencies:
-  - samtools
+  - samtools==1.20

@@ -4,4 +4,4 @@ channels:
   - defaults
 
 dependencies:
-  - ngsrelate=2.0
+  - ngsrelate==2.0
