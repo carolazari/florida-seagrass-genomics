@@ -12,7 +12,7 @@ rule busco:
         runtime=1440
 
     conda:
-        "envs/busco.yaml"
+        "../envs/busco.yaml"
 
     shell:
         """
@@ -23,7 +23,7 @@ rule busco:
 rule assembly_complete:
     input:
         "results/assembly/halodule.chromosome.fa",
-        directory("results/assembly/busco")
+        "results/assembly/busco"
         #"results/assembly/busco/short_summary.txt",
         #scaffold="results/assembly/halodule.chromosome.fa"
 
