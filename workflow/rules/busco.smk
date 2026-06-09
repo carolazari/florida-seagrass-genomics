@@ -9,7 +9,7 @@ rule busco:
 
     resources: 
         mem_mb=128000,
-        runtime=1440
+        time="05:00:00"
 
     conda:
         "../envs/busco.yaml"

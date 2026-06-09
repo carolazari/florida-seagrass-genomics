@@ -31,7 +31,7 @@ rule hifiasm:
 
     resources:
         mem_mb=512000,
-        runtime=4320    
+        time="05:00:00"    
 
     conda:
         "../envs/hifiasm.yaml"
