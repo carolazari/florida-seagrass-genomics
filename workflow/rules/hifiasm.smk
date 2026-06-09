@@ -9,7 +9,7 @@ rule pacbio_to_fastq:
 
     resources:
         mem_mb=64000,
-        runtime=720
+        time="05:00:00"
 
     conda:
         "../envs/hifiasm.yaml"
